@@ -157,7 +157,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   padding: 96px 20px;
   background:
     linear-gradient(rgba(5, 8, 13, 0.72), rgba(13, 17, 23, 0.9)),
-    url('./imagens/RDG\ SOCIALMIDIA.jpeg') center/cover no-repeat;
+    url('./imagens/HEADER.jpg') center top / cover no-repeat;
   position: relative;
 }
 
@@ -705,6 +705,10 @@ footer {
   .hero {
     min-height: calc(100vh - 68px);
     padding: 84px 20px;
+    background:
+      linear-gradient(rgba(5, 8, 13, 0.72), rgba(13, 17, 23, 0.9)),
+      url('./imagens/HEADER.jpg') center top / cover no-repeat;
+    background-attachment: scroll;
   }
 
   .section {
