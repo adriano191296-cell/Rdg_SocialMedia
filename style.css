@@ -1,12 +1,14 @@
 /* =====================
    RESET E BASE GERAL
    ===================== */
+/* Remove margens e espaçamentos padrão do navegador e faz o tamanho dos elementos incluir bordas e padding. */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Variáveis globais de cores, sombras e tons usados no site inteiro. */
 :root {
   --bg: #0d1117;
   --bg-deep: #05080d;
@@ -15,15 +17,17 @@
   --text: #e6edf3;
   --muted: #a7b0bd;
   --line: #2b3440;
-  --accent: #00ff88;
+  --accent: #ff0000;
   --accent-dark: #00d672;
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
 }
 
+/* Ativa rolagem suave quando o usuário clica em links de âncora do menu. */
 html {
   scroll-behavior: smooth;
 }
 
+/* Define o visual base da página: fundo escuro, cor do texto e tipografia principal. */
 body {
   background: var(--bg);
   color: var(--text);
@@ -32,15 +36,18 @@ body {
   line-height: 1.6;
 }
 
+/* Garante que imagens não ultrapassem a largura do contêiner e remove espaçamento inline padrão. */
 img {
   display: block;
   max-width: 100%;
 }
 
+/* Aplica a fonte de destaque em títulos, marca, botões e textos importantes. */
 h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author span {
   font-family: 'Sora', sans-serif;
 }
 
+/* Centraliza o conteúdo e limita a largura máxima das seções. */
 .container {
   width: min(1100px, 100%);
   margin: 0 auto;
@@ -50,15 +57,18 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
 /* =====================
    CABEÇALHO E MENU
    ===================== */
+/* Cabeçalho fixo no topo com transparência, borda sutil e efeito de desfoque. */
 .site-header {
   background: rgba(5, 8, 13, 0.92);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
+/* Organiza logo e menu lado a lado dentro do cabeçalho. */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -70,6 +80,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   padding: 10px 20px;
 }
 
+/* Estiliza a área da marca com imagem e nome. */
 .brand {
   display: inline-flex;
   align-items: center;
@@ -80,6 +91,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   font-weight: 800;
 }
 
+/* Formata a imagem/logo da marca em formato circular. */
 .brand img {
   width: 52px;
   height: 52px;
@@ -88,11 +100,13 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   object-fit: cover;
 }
 
+/* Destaca uma parte do nome da marca com a cor principal do site. */
 .brand strong {
   color: var(--accent);
   font-weight: 700;
 }
 
+/* Lista de links do menu em linha no desktop. */
 .menu {
   display: flex;
   align-items: center;
@@ -100,6 +114,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   list-style: none;
 }
 
+/* Aparência padrão dos links do menu. */
 .menu a {
   color: var(--muted);
   text-decoration: none;
@@ -108,11 +123,12 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   transition: color 0.2s;
 }
 
+/* Troca a cor do link quando o usuário passa o mouse. */
 .menu a:hover {
   color: var(--accent);
 }
 
-/* Botão hamburguer do menu mobile */
+/* Botão hamburguer do menu mobile. Fica escondido no desktop. */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -123,6 +139,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   padding: 8px;
 }
 
+/* Cada span é uma linha do ícone hamburguer. */
 .menu-toggle span {
   display: block;
   width: 24px;
@@ -132,15 +149,17 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   transition: transform 0.3s, opacity 0.3s;
 }
 
-/* Estado aberto do botão mobile */
+/* Estado aberto do botão mobile: transforma a primeira linha em parte do "X". */
 .menu-toggle.active span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
 
+/* Estado aberto do botão mobile: esconde a linha do meio. */
 .menu-toggle.active span:nth-child(2) {
   opacity: 0;
 }
 
+/* Estado aberto do botão mobile: transforma a terceira linha na outra parte do "X". */
 .menu-toggle.active span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
@@ -148,6 +167,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
 /* =====================
    HERO / CHAMADA INICIAL
    ===================== */
+/* Seção principal da primeira dobra, com imagem de fundo, camada escura e conteúdo centralizado. */
 .hero {
   min-height: calc(100vh - 76px);
   display: flex;
@@ -161,6 +181,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   position: relative;
 }
 
+/* Cria um degradê no fim do hero para fazer a transição suave com o fundo da página. */
 .hero::after {
   content: "";
   position: absolute;
@@ -170,12 +191,14 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   pointer-events: none;
 }
 
+/* Limita a largura do texto do hero e coloca o conteúdo acima do degradê decorativo. */
 .hero-content {
   max-width: 760px;
   position: relative;
   z-index: 1;
 }
 
+/* Etiquetas pequenas usadas no hero e nos títulos das seções. */
 .hero-label,
 .section-label {
   color: var(--accent);
@@ -186,6 +209,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   margin-bottom: 14px;
 }
 
+/* Título principal com tamanho responsivo usando clamp. */
 .hero h1 {
   color: #fff;
   font-size: clamp(2.25rem, 7vw, 4.8rem);
@@ -194,10 +218,12 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   margin-bottom: 22px;
 }
 
+/* Classe utilitária para destacar palavras com a cor de acento. */
 .accent {
   color: var(--accent);
 }
 
+/* Texto de apoio abaixo do título principal. */
 .hero-sub {
   color: #d3dae3;
   font-size: clamp(1rem, 2.2vw, 1.2rem);
@@ -205,12 +231,16 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   margin: 0 auto 34px;
 }
 
+/* =====================
+   BOTÕES
+   ===================== */
+/* Botão principal do site, usado em chamadas para ação. */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 52px;
-  background: var(--accent);
+  background: green;
   color: #031006;
   padding: 14px 28px;
   border-radius: 8px;
@@ -219,6 +249,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   transition: background 0.2s, transform 0.2s;
 }
 
+/* Efeito visual do botão ao passar o mouse. */
 .btn:hover {
   background: var(--accent-dark);
   transform: translateY(-2px);
@@ -227,10 +258,12 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
 /* =====================
    SEÇÕES GERAIS
    ===================== */
+/* Espaçamento vertical padrão para as seções do site. */
 .section {
   padding: 88px 0;
 }
 
+/* Estilo padrão dos títulos de seção. */
 .section h2 {
   color: #fff;
   font-size: clamp(1.75rem, 4vw, 2.7rem);
@@ -240,6 +273,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   margin-bottom: 22px;
 }
 
+/* Estilo padrão dos parágrafos dentro das seções. */
 .section p {
   color: var(--muted);
   max-width: 650px;
@@ -248,10 +282,12 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
 /* =====================
    SOBRE
    ===================== */
+/* Fundo em degradê para separar visualmente a seção "Sobre". */
 .section-about {
   background: linear-gradient(180deg, var(--bg), var(--bg-deep));
 }
 
+/* Grade de duas colunas para texto e imagem no desktop. */
 .about-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -259,11 +295,13 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   gap: 42px;
 }
 
+/* Texto da seção com uma barra lateral verde para destaque. */
 .about-text {
   border-left: 3px solid var(--accent);
   padding-left: 24px;
 }
 
+/* Imagem da seção "Sobre", com proporção fixa, borda e sombra. */
 .about-image {
   width: 100%;
   aspect-ratio: 4 / 5;
@@ -276,6 +314,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
 /* =====================
    CARDS DE SERVIÇOS
    ===================== */
+/* Grade de cards de serviços em três colunas no desktop. */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -283,6 +322,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   margin-top: 34px;
 }
 
+/* Visual base de cada card de serviço. */
 .card {
   background: var(--panel);
   border: 1px solid var(--line);
@@ -291,12 +331,14 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   transition: border-color 0.2s, transform 0.2s, background 0.2s;
 }
 
+/* Realça o card quando o usuário passa o mouse. */
 .card:hover {
   background: var(--panel-soft);
   border-color: rgba(0, 255, 136, 0.75);
   transform: translateY(-4px);
 }
 
+/* Pequeno selo/ícone no topo do card. */
 .card-icon {
   display: inline-flex;
   align-items: center;
@@ -312,6 +354,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   margin-bottom: 18px;
 }
 
+/* Título do card de serviço. */
 .card h3 {
   color: #fff;
   font-size: 1.15rem;
@@ -319,6 +362,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   margin-bottom: 10px;
 }
 
+/* Descrição do card de serviço. */
 .card p {
   color: var(--muted);
   font-size: 0.95rem;
@@ -327,10 +371,12 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
 /* =====================
    PORTFÓLIO / GALERIA
    ===================== */
+/* Fundo mais escuro para destacar a área do portfólio. */
 .section-portfolio {
   background: var(--bg-deep);
 }
 
+/* Grade dos itens do portfólio em três colunas no desktop. */
 .galeria {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -338,6 +384,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   margin-top: 34px;
 }
 
+/* Card clicável de cada projeto da galeria. */
 .item {
   min-width: 0;
   overflow: hidden;
@@ -348,6 +395,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   transition: border-color 0.2s, transform 0.2s;
 }
 
+/* Estado de hover/foco do item, importante para mouse e teclado. */
 .item:hover,
 .item:focus {
   outline: none;
@@ -355,16 +403,19 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   transform: translateY(-4px);
 }
 
+/* Imagem do projeto com proporção padronizada. */
 .item img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 
+/* Área de texto abaixo da imagem do projeto. */
 .item div {
   padding: 20px;
 }
 
+/* Nome do projeto dentro do card. */
 .item span {
   display: block;
   color: #fff;
@@ -373,11 +424,13 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   margin-bottom: 6px;
 }
 
+/* Descrição curta do projeto. */
 .item p {
   color: var(--muted);
   font-size: 0.92rem;
 }
 
+/* Pequeno texto de categoria/status dentro do card. */
 .item small {
   display: inline-flex;
   color: var(--accent);
@@ -391,6 +444,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
 /* =====================
    MODAL DO PORTFÓLIO
    ===================== */
+/* Modal do portfólio começa escondido e ocupa a tela toda quando aberto. */
 .portfolio-modal {
   display: none;
   position: fixed;
@@ -399,17 +453,21 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   padding: 28px;
 }
 
+/* Classe adicionada via JavaScript para mostrar o modal. */
 .portfolio-modal.open {
   display: block;
 }
 
+/* Camada escura atrás do conteúdo do modal. */
 .portfolio-modal__overlay {
   position: absolute;
   inset: 0;
   background: rgba(5, 8, 13, 0.82);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
+/* Caixa principal do modal com rolagem interna se o conteúdo passar da altura da tela. */
 .portfolio-modal__content {
   width: min(980px, 100%);
   max-height: calc(100vh - 56px);
@@ -424,6 +482,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   z-index: 1;
 }
 
+/* Botão de fechar no canto superior direito do modal. */
 .modal-close {
   display: inline-flex;
   align-items: center;
@@ -443,6 +502,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   transition: border-color 0.2s, color 0.2s;
 }
 
+/* Destaque do botão de fechar no hover e no foco por teclado. */
 .modal-close:hover,
 .modal-close:focus {
   border-color: var(--accent);
@@ -450,11 +510,13 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   outline: none;
 }
 
+/* Cabeçalho do modal, com espaço para não encostar no botão de fechar. */
 .modal-header {
   padding-right: 54px;
   margin-bottom: 24px;
 }
 
+/* Título do modal com a fonte de destaque. */
 .modal-header h2 {
   color: #fff;
   font-family: 'Sora', sans-serif;
@@ -463,17 +525,20 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   margin-bottom: 12px;
 }
 
+/* Texto final do cabeçalho do modal. */
 .modal-header p:last-child {
   color: var(--muted);
   max-width: 650px;
 }
 
+/* Galeria interna do modal com miniaturas em grade. */
 .modal-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
 }
 
+/* Imagens quadradas dentro do modal. */
 .modal-gallery img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -483,6 +548,7 @@ h1, h2, h3, .brand, .btn, .btn-social, .card-icon, .item span, .feedback-author 
   background: var(--panel);
 }
 
+/* Impede a página de rolar por trás quando o modal está aberto. */
 body.modal-open {
   overflow: hidden;
 }
@@ -490,12 +556,14 @@ body.modal-open {
 /* =====================
    FEEDBACKS DOS CLIENTES
    ===================== */
+/* Seção de depoimentos com fundo em degradê escuro. */
 .section-feedbacks {
   background:
     linear-gradient(180deg, var(--bg-deep), var(--bg)),
     var(--bg);
 }
 
+/* Grade de cards de feedback em três colunas no desktop. */
 .feedback-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -503,6 +571,7 @@ body.modal-open {
   margin-top: 34px;
 }
 
+/* Card individual de feedback/depoimento. */
 .feedback-card {
   min-width: 0;
   background: linear-gradient(180deg, rgba(29, 36, 48, 0.95), rgba(22, 27, 34, 0.98));
@@ -513,6 +582,7 @@ body.modal-open {
   transition: border-color 0.2s, transform 0.2s;
 }
 
+/* Barrinha decorativa no topo de cada feedback. */
 .feedback-card::before {
   content: "";
   display: block;
@@ -523,11 +593,13 @@ body.modal-open {
   margin-bottom: 22px;
 }
 
+/* Efeito de destaque no feedback ao passar o mouse. */
 .feedback-card:hover {
   border-color: rgba(0, 255, 136, 0.75);
   transform: translateY(-4px);
 }
 
+/* Variação visual para o feedback em destaque. */
 .featured-feedback {
   background:
     linear-gradient(180deg, rgba(0, 255, 136, 0.12), rgba(22, 27, 34, 0.98)),
@@ -535,6 +607,7 @@ body.modal-open {
   border-color: rgba(0, 255, 136, 0.38);
 }
 
+/* Texto principal do depoimento. */
 .feedback-text {
   color: #dbe3ec;
   font-size: 1rem;
@@ -543,11 +616,13 @@ body.modal-open {
   margin-bottom: 24px;
 }
 
+/* Área com nome e identificação do cliente. */
 .feedback-author {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 18px;
 }
 
+/* Nome do autor do feedback. */
 .feedback-author span {
   display: block;
   color: #fff;
@@ -556,6 +631,7 @@ body.modal-open {
   margin-bottom: 4px;
 }
 
+/* Cargo, empresa ou detalhe complementar do autor. */
 .feedback-author small {
   color: var(--accent);
   font-size: 0.82rem;
@@ -567,22 +643,26 @@ body.modal-open {
 /* =====================
    CONTATO
    ===================== */
+/* Seção de contato com brilho verde discreto no canto superior direito. */
 .contact-section {
   background:
     radial-gradient(circle at top right, rgba(0, 255, 136, 0.12), transparent 36%),
     var(--bg);
 }
 
+/* Centraliza o conteúdo da chamada de contato. */
 .contact-box {
   text-align: center;
 }
 
+/* Centraliza título e parágrafo limitados pela largura máxima definida nas regras gerais. */
 .contact-box h2,
 .contact-box p {
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Organiza os botões de contato lado a lado e permite quebra de linha. */
 .contato-links {
   display: flex;
   justify-content: center;
@@ -591,6 +671,7 @@ body.modal-open {
   flex-wrap: wrap;
 }
 
+/* Estilo base dos botões de redes sociais/contato. */
 .btn-social {
   display: inline-flex;
   align-items: center;
@@ -606,6 +687,7 @@ body.modal-open {
   transition: opacity 0.2s, transform 0.2s;
 }
 
+/* Tamanho e traço dos ícones SVG usados nos botões sociais. */
 .social-icon {
   width: 18px;
   height: 18px;
@@ -617,15 +699,18 @@ body.modal-open {
   flex: 0 0 auto;
 }
 
+/* Efeito dos botões sociais ao passar o mouse. */
 .btn-social:hover {
   opacity: 0.88;
   transform: translateY(-2px);
 }
 
+/* Cores do botão do Instagram. */
 .instagram {
   background: linear-gradient(135deg, #f09433, #dc2743, #bc1888);
 }
 
+/* Cores do botão do WhatsApp. */
 .whatsapp {
   background: #25d366;
   color: #031006;
@@ -634,6 +719,7 @@ body.modal-open {
 /* =====================
    RODAPÉ
    ===================== */
+/* Rodapé com fundo escuro, borda superior e texto centralizado. */
 footer {
   background: var(--bg-deep);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -646,6 +732,7 @@ footer {
 /* =====================
    RESPONSIVIDADE
    ===================== */
+/* Em telas médias, transforma grades de várias colunas em uma coluna para melhorar a leitura. */
 @media (max-width: 900px) {
   .cards,
   .galeria,
@@ -655,29 +742,36 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  /* Limita a altura da imagem "Sobre" para ela não ficar grande demais em tablets. */
   .about-image {
     max-height: 520px;
   }
 }
 
+/* Ajustes para celulares e telas menores. */
 @media (max-width: 768px) {
+  /* Reduz a altura mínima do cabeçalho no mobile. */
   .navbar {
     min-height: 68px;
   }
 
+  /* Ajusta o tamanho do texto da marca no mobile. */
   .brand span {
     font-size: 0.95rem;
   }
 
+  /* Reduz a imagem da marca no mobile. */
   .brand img {
     width: 46px;
     height: 46px;
   }
 
+  /* Mostra o botão hamburguer em telas menores. */
   .menu-toggle {
     display: flex;
   }
 
+  /* Menu mobile: fica escondido por padrão e aparece abaixo do cabeçalho. */
   .menu {
     display: none;
     position: absolute;
@@ -692,16 +786,19 @@ footer {
     padding: 20px;
   }
 
+  /* Classe usada para abrir o menu mobile via JavaScript. */
   .menu.open {
     display: flex;
   }
 
+  /* Links do menu ocupam a largura toda no mobile, facilitando o toque. */
   .menu a {
     display: block;
     width: 100%;
     font-size: 1rem;
   }
 
+  /* Ajusta altura, espaçamento e imagem de fundo do hero para celulares. */
   .hero {
     min-height: calc(100vh - 68px);
     padding: 84px 20px;
@@ -711,18 +808,22 @@ footer {
     background-attachment: scroll;
   }
 
+  /* Reduz o espaçamento vertical das seções no mobile. */
   .section {
     padding: 68px 0;
   }
 
+  /* Diminui o recuo do texto da seção "Sobre" no mobile. */
   .about-text {
     padding-left: 18px;
   }
 
+  /* Empilha os botões de contato no mobile. */
   .contato-links {
     flex-direction: column;
   }
 
+  /* Botões ocupam a largura total no mobile para melhorar a usabilidade. */
   .btn,
   .btn-social {
     width: 100%;
